@@ -7,9 +7,6 @@ from django.shortcuts import render_to_response
 class CountdownMiddleware(object):
     def process_response(self, request, response):
 
-        if request.path in settings.COUNTDOWN_EXCLUDE_URLS:
-            return response
-
         if settings.COUNTDOWN_TARGET_DATE > datetime.now():
 
             # Allow to login in admin part
